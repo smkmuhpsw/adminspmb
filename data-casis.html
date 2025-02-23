@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Data Casis Online</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .modal-dialog {
+            max-width: 80%; /* Sesuaikan lebar modal */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="home.html"><img src="assets/images/SPMB.png" style="height: 45px;" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="home.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="info.html" class='sidebar-link'>
+                                <i class="bi bi-megaphone-fill"></i> 
+                                <span>informasi</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-title">Menu Extra</li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Data Master</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item active">
+                                    <a href="data-casis.html">Data Casis Offline</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="data-online.html">Data Casis Online</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="jurusan.html">Jurusan</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="tahun.html">Tahun</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="minat.html">Minat Bakat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="episode.html">Episode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="data-pem-ppdb.html">Pembayaran Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="riwayat.html">Riwayat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="laporan-eps.html">Laporan Kuota</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Laporan</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="laporan_jurusan.html">Data Jumlah Casis</a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="pengaturan.html" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="javascript:void(0);" class="sidebar-link" onclick="logout()">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Data Casis</h3>
+                            <p class="text-subtitle text-muted">Calon Siswa</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end m-3">
+                    <a href="form-ppdb.html" class="btn btn-primary mr-2">Tambah Casis</a>
+                    <button id="exportExcel" class="btn btn-success text-white m-2">Export to Excel</button>
+                    
+                  </div>
+                <section class="section">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- <div class="d-flex justify-content-between mb-3">
+                                <a class="mb-0">Data Casis</a>
+                                 <input type="text" id="search-input" placeholder="Cari data..." class="form-control w-25" onkeyup="searchTable()"> 
+                            </div> -->
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Id Casis</th>
+                                            <th>Nama Casis</th>
+                                            <th>Nisn</th>
+                                            <th>Jurusan</th>
+                                            <th>TTL</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>Asal SMP</th>
+                                            <th>Alamat</th>
+                                            <th>Whatsapp</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- Data akan dimasukkan di sini -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; AGA</p>
+                    </div>
+                    <div class="float-end">
+                        <p>By <a
+                                href="">Sewu Developer</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <form id="editForm">
+                    
+                    <div class="row">
+                        <!-- Left Column -->
+                    <div class="col-md-6">
+                    <div class="row mb-3">
+                        <label for="idPendaftaran" class="col-sm-4 col-form-label">ID Pendaftaran</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="idPendaftaran" required readonly>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nama" class="col-sm-4 col-form-label">Nama</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nama" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="jenisKelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="jenisKelamin" required>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="tempatLahir" class="col-sm-4 col-form-label">Tempat Lahir</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tempatLahir" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="tanggalLahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="tanggalLahir" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="agama" class="col-sm-4 col-form-label">Agama</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="agama" required>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="row mb-3">
+                        <label for="asalSmp" class="col-sm-4 col-form-label">Asal SMP</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="asalSmp" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="lulusanTahun" class="col-sm-4 col-form-label">Lulusan Tahun</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="lulusanTahun" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="noIjazah" class="col-sm-4 col-form-label">No Ijazah</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="noIjazah" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="nisn" class="col-sm-4 col-form-label">NISN</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nisn" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="jumlahNilaiSkhu" class="col-sm-4 col-form-label">Jumlah Nilai SKHU</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="jumlahNilaiSkhu" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row mb-3">
+                        <label for="alamat" class ="col-sm-4 col-form-label">Alamat Calon Siswa</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="alamat" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="kodePost" class="col-sm-4 col-form-label">Kode Post</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="kodePost" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="telp" class="col-sm-4 col-form-label">Telp</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="telp" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="ayah" class="col-sm-4 col-form-label">Nama Ayah</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="ayah" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="ibu" class="col-sm-4 col-form-label">Nama Ibu</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="ibu" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="alamatOrtu" class="col-sm-4 col-form-label">Alamat Orang Tua</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="alamatOrtu" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="noHpSiswa" class="col-sm-4 col-form-label">No Hp Siswa</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="noHpSiswa" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="noHpOrtu" class="col-sm-4 col-form-label">No Hp Orang Tua</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="noHpOrtu" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row mb-3">
+                        <label for="pekerjaanOrtu" class="col-sm-4 col-form-label">Pekerjaan Orang Tua</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pekerjaanOrtu" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12">Jurusan 1</label>
+                        <div class="col-sm-12">
+                            <select class="form-select shadow-none form-control-line" id="id_jurusan" name="id_jurusan">
+                                <option selected>Pilih Jurusan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-12">Jurusan 2</label>
+                        <div class="col-sm-12">
+                            <select class="form-select shadow-none form-control-line" id="idjurusan2" name="idjurusan2">
+                                <option selected>Pilih Jurusan</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="col-sm-12">Minat Bakat</label>
+                        <div class="col-sm-12">
+                            <select class="form-select shadow-none form-control-line" id="id_minat" name="id_minat">
+                                <option selected>Pilih Minat</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row mb-3">
+                        <label for="panitiaInput" class="col-sm-4 col-form-label">Panitia yang Input</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="panitiaInput" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="yangMembawa" class="col-sm-4 col-form-label">Yang Membawa</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="yangMembawa" required>
+                        </div>
+                    </div>
+                    <br>
+                    <button type ="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('username')) {
+            window.location.href = 'index.html'; // Redirect to login page
+        }
+    
+        // Prevent user from going back to the previous page
+        window.history.replaceState(null, '', window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+
+         // Get the username from localStorage
+    const username = localStorage.getItem('username') || 'test_user';
+    document.getElementById('usernameHeader').textContent = username;
+    
+    </script>
+
+    <script>
+        // URL Web App dari Apps Script
+        const kls = 'https://script.google.com/macros/s/AKfycbyiMr2YZ6-incJUWUUI6CzBb8g7Cpyc1l2Sl1Ko2OAhdYcQ5pja4eX0FFYVDvWqqAda/exec'; // Ganti dengan URL Web App Anda
+    
+        // Ambil data dari Apps Script dan tambahkan ke dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('id_jurusan');
+    
+            fetch(kls)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.id_jurusan; // ID dari spreadsheet
+                        option.textContent = item.jurusan; // Nama dari spreadsheet
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+        // Ambil data dari Apps Script dan tambahkan ke dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('idjurusan2');
+    
+            fetch(kls)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.id_jurusan; // ID dari spreadsheet
+                        option.textContent = item.jurusan; // Nama dari spreadsheet
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script> 
+    <script>
+        // URL Web App dari Apps Script
+        const url = 'https://script.google.com/macros/s/AKfycbxenGB_oGDQV8h8kA45bMgFXw8rmIjQrJFhukd0Qd4helczEU2wxB4_HeyP5S118vs/exec'; // Ganti dengan URL Web App Anda
+    
+        // Ambil data dari Apps Script dan tambahkan ke dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdown = document.getElementById('id_minat');
+    
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(item => {
+                        const option = document.createElement('option');
+                        option.value = item.id_minat; // ID dari spreadsheet
+                        option.textContent = item.minat; // Nama dari spreadsheet
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+ 
+<script>
+    function fetchDataById(idPendaftaran) {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxYjtWAH6YNXyQmzVLqI4_d1hnJMDzfq7vp-Coeo18tThrbS-XTfJzbvS25M197TIeR/exec';
+        const fullURL = `${scriptURL}?id_pendaftaran=${idPendaftaran}`;
+    
+    
+        return fetch(fullURL)
+            .then(response => response.json())
+            .then(data => {
+                if (Array.isArray(data) && data.length > 0) {
+                    return data.find(item => item.Id_Pendaftaran === idPendaftaran) || null;
+                } else {
+                    throw new Error('Data tidak ditemukan');
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+    
+    
+    function openEditModal(idPendaftaran) {
+    
+        fetchDataById(idPendaftaran).then(rowData => {
+    
+            document.getElementById('idPendaftaran').value = rowData.Id_Pendaftaran;
+            document.getElementById('nama').value = rowData.Nama;
+            document.getElementById('jenisKelamin').value = rowData.Jenis_Kelamin;
+            document.getElementById('tempatLahir').value = rowData.Tempat_Lahir || '';
+            document.getElementById('tanggalLahir').value = rowData.Tanggal_Lahir ? new Date(rowData.Tanggal_Lahir).toISOString().split('T')[0] : '';
+            document.getElementById('agama').value = rowData.Agama || '';
+            document.getElementById('asalSmp').value = rowData.Asal_Smp || '';
+            document.getElementById('lulusanTahun').value = rowData.Lulusan_Tahun || '';
+            document.getElementById('noIjazah').value = rowData.No_Ijazah || '';
+            document.getElementById('nisn').value = rowData.NISN || '';
+            document.getElementById('jumlahNilaiSkhu').value = rowData.Jumlah_Nilai_skhu || '';
+            document.getElementById('alamat').value = rowData.Alamat_Calon_Siswa || '';
+            document.getElementById('kodePost').value = rowData.Kode_posta || '';
+            document.getElementById('telp').value = rowData.telp|| '';
+            document.getElementById('ayah').value = rowData.ayah || '';
+            document.getElementById('ibu').value = rowData.ibu || '';
+            document.getElementById('alamatOrtu').value = rowData.alamat_ortu || '';
+            document.getElementById('noHpSiswa').value = rowData.no_siswa || '';
+            document.getElementById('noHpOrtu').value = rowData.no_ortu || '';
+            document.getElementById('pekerjaanOrtu').value = rowData.pekerjaan_ortu || '';
+            document.getElementById('id_jurusan').value = rowData.jurusan_1 || '';
+            document.getElementById('idjurusan2').value = rowData.jurusan_2 || '';
+            document.getElementById('id_minat').value = rowData.Ekskul || '';
+            document.getElementById('panitiaInput').value = rowData.panitia_input || '';
+            document.getElementById('yangMembawa').value = rowData.yang_membawa || '';
+    
+            const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+            editModal.show();
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyC_k6BMhINOORBfxfhJPjmjdrJ398p2JGE_0swzJxzrVyfzpYL9_22N-5tjwpORAxt/exec';
+        const jurusanURL = 'https://script.google.com/macros/s/AKfycby8DTNLIpo1Bi8_SGpQ_Xm1mLzGAsc7jwtaPxHEPNdP5n_hx8L8rq8vSdbrWBYUeaUH/exec'; 
+        const tableBody = document.querySelector('#table-body');
+    
+        let jurusanMap = {}; // Objek untuk mapping ID ke nama jurusan
+    
+        // Ambil data jurusan terlebih dahulu
+        fetch(jurusanURL)
+            .then(response => response.json())
+            .then(jurusanData => {
+                // Buat mapping ID jurusan ke nama jurusan
+                jurusanMap = jurusanData.reduce((map, jurusan) => {
+                    map[jurusan.id_jurusan] = jurusan.jurusan; // Misal: { "1": "Teknik Informatika", "2": "Akuntansi" }
+                    return map;
+                }, {});
+    
+                // Setelah jurusan dimuat, ambil data calon siswa
+                return fetch(scriptURL);
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.length === 0) {
+                    console.log('No data found.');
+                    return; // Exit if no data
+                }
+    
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+    
+                    // Ambil nama jurusan berdasarkan ID dari data siswa
+                    const jurusan1Name = jurusanMap[row.jurusan_1] || 'Tidak Diketahui';
+    
+                    tr.innerHTML = `
+                        <td style="font-size:14px">${row.Id_Pendaftaran}</td>
+                        <td style="font-size :14px">${row.Nama}</td>
+                        <td style="font-size:14px">${row.NISN}</td>
+                        <td style="font-size:14px">${jurusan1Name}</td> <!-- Menampilkan Nama Jurusan -->
+                        <td style="font-size:14px">${row.Tempat_Lahir || 'N/A'}, ${ new Date(row.Tanggal_Lahir).toLocaleDateString('en-GB') || 'N/A'}</td>
+                        <td style="font-size:14px">${row.Jenis_Kelamin }</td>
+                        <td style="font-size:14px">${row.Asal_Smp}</td>
+                        <td style="font-size:14px">${row.Alamat_Calon_Siswa}</td>
+                       <td style="font-size:14px; text-align:center">
+                            <a href="https://wa.me/${row.no_siswa}?text=Assalamualaikum" target="_blank">
+                                <i class="fab fa-whatsapp m-1" style="color: green; font-size: 20px;"></i>
+                            </a>
+                        </td>
+
+                        <td style="font-size:15px; text-align:center">
+                             <a href="view-casis.html?id_pendaftaran=${row.Id_Pendaftaran}" title="Lihat">
+                                <i class="fa fa-eye m-1"></i> <!-- Ikon Lihat -->
+                            </a>
+                            <a href="form-pembayaran.html?id_pendaftaran=${row.Id_Pendaftaran},${row.Nama},${row.NISN},${row.Asal_Smp}">
+                               <i class="fa fa-money-bill m-1"></i> <!-- Ikon Money -->
+                            </a><br>
+                             <i class="fa fa-edit m-1" onclick="openEditModal('${row.Id_Pendaftaran}')"></i>
+                            <i class="fa fa-trash m-1" onclick="deleteEntry('${row.Id_Pendaftaran}')"></i> 
+                        </td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+    
+                // Initialize Simple DataTable after data is appended
+                let dataTable = new simpleDatatables.DataTable(document.querySelector('#table1'));
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    });
+    
+</script>
+
+    <script>
+        function searchTable() {
+            // Mendapatkan nilai input pencarian
+            const input = document.getElementById('search-input');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('table1');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const rows = tbody.getElementsByTagName('tr');
+
+            // Loop melalui semua baris tabel dan sembunyikan yang tidak cocok
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+
+                // Loop melalui semua sel dalam baris
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j]) {
+                        const cellValue = cells[j].textContent || cells[j].innerText;
+                        if (cellValue.toLowerCase().indexOf(filter) > -1) {
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+
+                // Tampilkan atau sembunyikan baris berdasarkan pencarian
+                rows[i].style.display = found ? "" : "none";
+            }
+        }
+    </script>
+
+    <script>
+        function deleteEntry(registrationId, rowId) {
+            // Confirmation alert
+            const confirmation = confirm("Ap akah Anda yakin ingin menghapus data ini?");
+            if (!confirmation) {
+                return; // Exit the function if the user cancels
+            }
+
+            const url = 'https://script.google.com/macros/s/AKfycbymSmwqIUEU-ACDQ6wAIk8tLcTYP1PGXs4wNQJ35Qt5iNrWv63brBmpwOKyexs8qqc/exec'; // Replace with your Google Apps Script URL
+            const params = {
+                func: 'DELETE',
+                registrationId: registrationId,
+                SH: 'siswa' // Replace with your actual sheet name if necessary
+            };
+
+            fetch(url, {
+                method: 'POST',
+                mode: 'no-cors', // Added to avoid CORS issues
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            .then(() => {
+                alert("Berhasil: Data berhasil dihapus."); // Display success message
+                // Refresh the page after deletion
+                location.reload(); // Refresh the current page
+            })
+            .catch(error => {
+                console.error('Error deleting entry:', error);
+                alert('An error occurred while trying to delete the entry.');
+            });
+        }
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('editForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const url = 'https://script.google.com/macros/s/AKfycbx6MxbG8UPwMHG7LM6-Ie5ywt-PA9RUpwjMA3Ouw3cUdi_gjAZwDzD0Lz-bQzuR15I/exec'; // Replace with your Google Apps Script URL
+            const params = {
+                func: 'UPDATE',
+                data: {
+                    Id_Pendaftaran: document.getElementById('idPendaftaran').value,
+                    Nama: document.getElementById('nama').value,
+                    Jenis_Kelamin: document.getElementById('jenisKelamin').value,
+                    Tempat_Lahir: document.getElementById('tempatLahir').value,
+                    Tanggal_Lahir: document.getElementById('tanggalLahir').value,
+                    Agama: document.getElementById('agama').value,
+                    Asal_Smp: document.getElementById('asalSmp').value,
+                    Lulusan_Tahun: document.getElementById('lulusanTahun').value, // Corrected ID
+                    No_Ijazah: document.getElementById('noIjazah').value,
+                    NISN: document.getElementById('nisn').value,
+                    Jumlah_Nilai_SKHU: document.getElementById('jumlahNilaiSkhu').value,
+                    Alamat_Calon_Siswa: document.getElementById('alamat').value,
+                    telp: document.getElementById('kodePost').value,
+                    telp: document.getElementById('telp').value,
+                    ayah: document.getElementById('ayah').value,
+                    ibu: document.getElementById('ibu').value,
+                    alamat_ortu: document.getElementById('alamatOrtu').value,
+                    no_siswa: document.getElementById('noHpSiswa').value,
+                    no_ortu: document.getElementById('noHpOrtu').value,
+                    pekerjaan_ortu: document.getElementById('pekerjaanOrtu').value,
+                    jurusan_1: document.getElementById('id_jurusan').value,
+                    jurusan_2: document.getElementById('idjurusan2').value,
+                    Ekskul: document.getElementById('id_minat').value,
+                    panitia_input: document.getElementById('panitiaInput').value,
+                    yang_membawa: document.getElementById('yangMembawa').value
+                },
+                SH: 'siswa' // Replace with your actual sheet name if necessary
+            };
+
+            fetch(url, {
+                method: 'POST',
+                mode:"no-cors",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(params)
+            })
+            .then(() => {
+                alert("Berhasil: Data berhasil diupdate."); // Display success message
+                // Refresh the page after update
+                location.reload(); // Refresh the current page
+            })
+            .catch(error => {
+                console.error('Error updating entry:', error);
+                alert(' An error occurred while trying to update the entry.');
+            });
+        });
+    });
+</script>
+<script>
+    let currentPage = 1;
+const rowsPerPage = 10;
+
+function displayTable() {
+    let tableBody = document.getElementById("table-body");
+    let rows = tableBody.getElementsByTagName("tr");
+    let totalPages = Math.ceil(rows.length / rowsPerPage) || 1;
+    
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].style.display = (i >= (currentPage - 1) * rowsPerPage && i < currentPage * rowsPerPage) ? "" : "none";
+    }
+
+    updatePaginationControls(totalPages);
+}
+
+function updatePaginationControls(totalPages) {
+    let paginationControls = document.getElementById("pagination");
+    paginationControls.innerHTML = "";
+
+    let prevButton = document.createElement("button");
+    prevButton.textContent = "Previous";
+    prevButton.classList.add("btn", "btn-secondary", "mx-1");
+    prevButton.disabled = currentPage === 1;
+    prevButton.onclick = function () {
+        if (currentPage > 1) {
+            currentPage--;
+            displayTable();
+        }
+    };
+    paginationControls.appendChild(prevButton);
+
+    for (let i = 1; i <= totalPages; i++) {
+        let button = document.createElement("button");
+        button.textContent = i;
+        button.classList.add("btn", "btn-primary", "mx-1");
+        if (i === currentPage) button.classList.add("active");
+        button.onclick = function () {
+            currentPage = i;
+            displayTable();
+        };
+        paginationControls.appendChild(button);
+    }
+
+    let nextButton = document.createElement("button");
+    nextButton.textContent = "Next";
+    nextButton.classList.add("btn", "btn-secondary", "mx-1");
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.onclick = function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayTable();
+        }
+    };
+    paginationControls.appendChild(nextButton);
+}
+
+// Panggil fungsi saat data di-load
+document.addEventListener("DOMContentLoaded", function () {
+    displayTable();
+});
+
+</script>
+<script>
+    document.getElementById("exportExcel").addEventListener("click", function () {
+        let table = document.getElementById("table1"); // Ambil tabel
+        let ws = XLSX.utils.table_to_sheet(table); // Konversi tabel ke sheet Excel
+        let wb = XLSX.utils.book_new(); // Buat workbook baru
+        XLSX.utils.book_append_sheet(wb, ws, "Data Casis"); // Tambahkan sheet ke dalam workbook
+        XLSX.writeFile(wb, "Data_Casis_Ofline.xlsx"); // Simpan file Excel dengan nama "Data_Casis.xlsx"
+    });
+    
+</script>
+
+
+<script>
+    function logout() {
+        const username = localStorage.getItem('username'); // Get the username from local storage
+
+        // Check if username exists
+        if (username) {
+            const deleteUrl = `https://script.google.com/macros/s/AKfycbxAeeQSHUDj_k1pX-z3k9KG0d17QwWmIe0s7-Er7mljIWNah3umEcROWc7mRKtVQveJ/exec?username=${encodeURIComponent(username)}&action=delete`; // Replace with your actual Google Apps Script URL
+
+            fetch(deleteUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data deleted successfully:', data);
+                    // Clear the history from local storage
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+
+                    // Redirect to index.html
+                    window.location.href = 'index.html'; // Change 'index.html' to your actual homepage if different
+                })
+                .catch(error => {
+                    console.error('Error deleting data:', error);
+                    // Optionally, clear local storage and redirect even if deletion fails
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+                    window.location.href = 'index.html';
+                });
+        } else {
+            // If no username is found, just redirect
+            localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+    }
+</script>
+    <!-- Simple DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css">
+<!-- Simple DataTables JS -->
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

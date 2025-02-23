@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Form Informasi</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+  
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="home.html"><img src="assets/images/SPMB.png" style="height: 45px;" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="home.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="info.html" class='sidebar-link'>
+                                <i class="bi bi-megaphone-fill"></i> 
+                                <span>informasi</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-title">Menu Extra</li>
+                        <li class="sidebar-item has-sub ">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Data Master</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item ">
+                                    <a href="data-casis.html">Data Casis Offline</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="data-online.html">Data Casis Online</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="jurusan.html">Jurusan</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="tahun.html">Tahun</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="minat.html">Minat Bakat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="episode.html">Episode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="data-pem-ppdb.html">Pembayaran Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="riwayat.html">Riwayat</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Laporan</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="laporan_jurusan.html">Data Jumlah Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="laporan-eps.html">Laporan Kuota</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="pengaturan.html" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="javascript:void(0);" class="sidebar-link" onclick="logout()">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Form Informasi</h3>
+                            <p class="text-subtitle text-muted">form informasi terbaru</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="info.html">Data Informasi</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Informasi</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-alert d-none alert alert-success" role="alert" id="successAlert" >
+                    Form submitted successfully!
+                </div>
+                <div class="d-none" id="response"></div>
+
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Data Diri Casis</h4>
+                                </div>
+                                
+
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form" name="tambah" id="tambah">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="judul">id</label>
+                                                        <input type="text" id="id_info" class="form-control" name="id_info" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="judul">Judul</label>
+                                                        <input type="text" id="judul" class="form-control" name="judul" required>
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="sub">Sub Judul</label>
+                                                        <input type="text" id="sub" class="form-control" name="sub" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="tanggal">Tanggal</label>
+                                                        <input type="date" id="tanggal" class="form-control" name="tanggal" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label class="col-sm-12">Panitia</label>
+                                                    <div class="col-sm-12">
+                                                        <select class="form-select shadow-none form-control-line"  name="panitia" >
+                                                            <option selected>Pilih panitia</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="form-group">
+                                                        <label for="ket">Deskripsi</label>
+                                                        <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="mt-2"></textarea>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                <div class="row mb-3">
+                                                    <div class="form-group">
+                                                        <label for="ket">Upload Foto</label>
+                                                        <input type="file" class="form-control form-control-line" id="foto" name="foto" accept="image/*" required>
+
+                                                       
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button type="submit" id="submitButton" class="btn btn-primary me-1 mb-1 btn-kirim">Submit</button>
+                                                        <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                                                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                                            <span role="status">Loading...</span>
+                                                          </button>
+                                                    <button type="reset"
+                                                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Basic multiple Column Form section end -->
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; AGA</p>
+                    </div>
+                    <div class="float-end">
+                        <p>By <a
+                                href="">Sewu Developer</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+        
+    <!-- filepond validation -->
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+
+    <!-- toastify -->
+    <script src="assets/vendors/toastify/toastify.js"></script>
+
+    <!-- filepond -->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/vendors/tinymce/tinymce.min.js"></script>
+<script src="assets/vendors/tinymce/plugins/code/plugin.min.js"></script>
+
+<script>
+    // Check if the user is logged in
+    if (!localStorage.getItem('username')) {
+        window.location.href = 'index.html'; // Redirect to login page
+    }
+
+    // Prevent user from going back to the previous page
+    window.history.replaceState(null, '', window.location.href);
+    window.onpopstate = function () {
+        window.history.go(1);
+    };
+
+     // Get the username from localStorage
+const username = localStorage.getItem('username') || 'test_user';
+document.getElementById('usernameHeader').textContent = username;
+
+</script>
+<script>
+    // Fungsi untuk menghasilkan string acak
+    function generateRandomId(length = 8) {
+       const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+       let result = '';
+       for (let i = 0; i < length; i++) {
+           result += characters.charAt(Math.floor(Math.random() * characters.length));
+       }
+       return result;
+   }
+
+   // Mengisi input hidden dengan ID acak saat halaman dimuat
+   document.addEventListener('DOMContentLoaded', () => {
+       const idMateriField = document.getElementById('id_info');
+       if (idMateriField) {
+           idMateriField.value = generateRandomId(); // Mengatur nilai ID acak
+       }
+   });
+
+</script>
+
+
+
+<script>
+    tinymce.init({
+        selector: '#deskripsi',
+        toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code',
+        plugins: 'code'
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('tambah').addEventListener('submit', async function (e) {
+            e.preventDefault();
+    
+            const submitButton = document.getElementById('submitButton');
+            const alertElement = document.getElementById('successAlert');
+            const responseDiv = document.getElementById('response');
+            const fotoInput = document.getElementById('foto');
+    
+            if (!submitButton || !alertElement || !responseDiv || !fotoInput) {
+                console.error("Elemen form tidak ditemukan!");
+                return;
+            }
+    
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Mengirim...`;
+    
+            const formData = new FormData(this);
+    
+            // **Tambahkan deskripsi dari TinyMCE ke formData**
+            if (typeof tinymce !== 'undefined' && tinymce.get('deskripsi')) {
+                formData.set('deskripsi', tinymce.get('deskripsi').getContent()); 
+            }
+    
+            if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
+                const file = fotoInput.files[0];
+                const base64 = await toBase64(file);
+    
+                formData.append('foto', base64); 
+                formData.append('fotoMimeType', file.type); 
+                formData.append('fotoFileName', file.name);
+            } else {
+                console.warn("Tidak ada file gambar yang dipilih.");
+            }
+    
+            const url = 'https://script.google.com/macros/s/AKfycbzcd9RJ4_YEubLSEpjgBhu2s3jwIdtMDbZnoXjKxDL-FYiW0i07HGwOYBvHUfBIJZEC/exec';
+    
+            try {
+                const response = await fetch(url, { method: 'POST', body: formData });
+                const data = await response.json();
+    
+                if (data.success) {
+                    alertElement.classList.remove('d-none');
+                    responseDiv.textContent = data.message;
+    
+                    this.reset();
+    
+                    if (typeof tinymce !== 'undefined' && tinymce.get('deskripsi')) {
+                        tinymce.get('deskripsi').setContent('');
+                    }
+    
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    alert('Gagal mengirim data: ' + (data.message || 'Silakan coba lagi.'));
+                }
+            } catch (error) {
+                alert('Terjadi kesalahan: ' + error.message);
+            }
+    
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Simpan';
+        });
+    });
+    
+    // Fungsi konversi file ke Base64
+    function toBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = (error) => reject(error);
+            reader.readAsDataURL(file);
+        });
+    }
+    
+    </script>
+
+<script>
+    function logout() {
+        const username = localStorage.getItem('username'); // Get the username from local storage
+
+        // Check if username exists
+        if (username) {
+            const deleteUrl = `https://script.google.com/macros/s/AKfycbxAeeQSHUDj_k1pX-z3k9KG0d17QwWmIe0s7-Er7mljIWNah3umEcROWc7mRKtVQveJ/exec?username=${encodeURIComponent(username)}&action=delete`; // Replace with your actual Google Apps Script URL
+
+            fetch(deleteUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data deleted successfully:', data);
+                    // Clear the history from local storage
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+
+                    // Redirect to index.html
+                    window.location.href = 'index.html'; // Change 'index.html' to your actual homepage if different
+                })
+                .catch(error => {
+                    console.error('Error deleting data:', error);
+                    // Optionally, clear local storage and redirect even if deletion fails
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+                    window.location.href = 'index.html';
+                });
+        } else {
+            // If no username is found, just redirect
+            localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+    }
+</script>
+
+</html>

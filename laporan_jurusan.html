@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Data Laporan Jurusan</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <style>
+          #chart-visitors-profile {
+                    max-width: 300px; /* Batasi lebar maksimal */
+                    max-height: 300px; /* Batasi tinggi maksimal */
+                    margin: auto; /* Pusatkan */
+                  }
+                  
+    </style>
+ 
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="home.html"><img src="assets/images/SPMB.png" style="height: 45px;" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="home.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="info.html" class='sidebar-link'>
+                                <i class="bi bi-megaphone-fill"></i> 
+                                <span>informasi</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-title">Menu Extra</li>
+                        <li class="sidebar-item has-sub ">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Data Master</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item ">
+                                    <a href="data-casis.html">Data Casis Offline</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="data-online.html">Data Casis Online</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="jurusan.html">Jurusan</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="tahun.html">Tahun</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="minat.html">Minat Bakat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="episode.html">Episode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="data-pem-ppdb.html">Pembayaran Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="riwayat.html">Riwayat</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Laporan</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item active">
+                                    <a href="laporan_jurusan.html">Data Jumlah Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="laporan-eps.html">Laporan Kuota</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="pengaturan.html" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="javascript:void(0);" class="sidebar-link" onclick="logout()">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <h3>Profile Statistics</h3>
+            </div>
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="iconly-boldShow"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Total Ofline</h6>
+                                                <h6 class="font-extrabold mb-0 total-offline">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon blue">
+                                                    <i class="iconly-boldProfile"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Laki-Laki</h6>
+                                                <h6 class="font-extrabold mb-0 total-laki">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon green">
+                                                    <i class="iconly-boldAdd-User"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Perempuan</h6>
+                                                <h6 class="font-extrabold mb-0 total-perempuan">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
+                                                    <i class="iconly-boldBookmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Bayar</h6>
+                                                <h6 class="font-extrabold mb-0 bayar-ofline">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="iconly-boldShow"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Total Online</h6>
+                                                <h6 class="font-extrabold mb-0 total-online">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon blue">
+                                                    <i class="iconly-boldProfile"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Laki-Laki</h6>
+                                                <h6 class="font-extrabold mb-0 laki_online">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon green">
+                                                    <i class="iconly-boldAdd-User"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Perempuan</h6>
+                                                <h6 class="font-extrabold mb-0 perempuan_online">Loading</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
+                                                    <i class="iconly-boldBookmark"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Bayar</h6>
+                                                <h6 class="font-extrabold mb-0 bayar-online">Loading ...</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Card: Jumlah Siswa Per Jurusan -->
+                            <div class="col-md-6 col-12">
+                                <div class="card">
+                                    <div class="card-header text-center">
+                                        <h4>Jumlah Siswa Per Jurusan</h4>
+                                    </div>
+                                    <div class="card-body d-flex justify-content-center">
+                                        <canvas id="chart-jurusan" style="max-width: 100%; height: 300px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Card: Chart Jenis Kelamin -->
+                            <div class="col-md-6 col-12">
+                                <div class="card">
+                                    <div class="card-header text-center">
+                                        <h4>Chart Jenis Kelamin</h4>
+                                    </div>
+                                    <div class="card-body d-flex justify-content-center">
+                                        <canvas id="chart-visitors-profile" style="max-width: 100%; height: 300px;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; AGA</p>
+                    </div>
+                    <div class="float-end">
+                        <p>By <a
+                                href="">Sewu Developer</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+   
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('username')) {
+            window.location.href = 'index.html'; // Redirect to login page
+        }
+    
+        // Prevent user from going back to the previous page
+        window.history.replaceState(null, '', window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    
+         // Get the username from localStorage
+    const username = localStorage.getItem('username') || 'test_user';
+    document.getElementById('usernameHeader').textContent = username;
+    
+    </script>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            await fetchDataOffline();
+            await fetchDataOnline();
+            await fetchDataBayar();
+            await fetchDataJurusan(); // Menambahkan data jurusan
+            hitungTotalDanRenderChart();
+        });
+    
+        // Fungsi Fetch Data Offline
+        async function fetchDataOffline() {
+            const scriptURL = "https://script.google.com/macros/s/AKfycby7pPdluKob2QNDruaNxI3enmStKjo4XK6b97BAsa_Xf3Dz5VCpm0boGjLOpfKwQrOq2g/exec?action=read";
+    
+            try {
+                let response = await fetch(scriptURL);
+                let data = await response.json();
+    
+                if (data) {
+                    document.querySelector(".total-offline").textContent = (data.totalofline || "0") + " casis";
+                    document.querySelector(".total-laki").textContent = (data.totalLaki || "0") + " casis";
+                    document.querySelector(".total-perempuan").textContent = (data.totalPerempuan || "0") + " casis";
+                } else {
+                    console.log("Data offline tidak ditemukan.");
+                }
+            } catch (error) {
+                console.error("Error fetching offline data:", error);
+            }
+        }
+    
+        // Fungsi Fetch Data Online
+        async function fetchDataOnline() {
+            const scriponline = "https://script.google.com/macros/s/AKfycbymeGo_J5CrCnf8gx6FsBSv0oQ3Y7We0cIIHiSbMAUx_E0uv6oiQW6bZa_w6pf99fp2fQ/exec?action=read";
+    
+            try {
+                let response = await fetch(scriponline);
+                let data = await response.json();
+    
+                if (data) {
+                    document.querySelector(".total-online").textContent = (data.totalonline || "0") + " casis";
+                    document.querySelector(".laki_online").textContent = (data.lakionline || "0") + " casis";
+                    document.querySelector(".perempuan_online").textContent = (data.perempuanonline || "0") + " casis";
+                } else {
+                    console.log("Data online tidak ditemukan.");
+                }
+            } catch (error) {
+                console.error("Error fetching online data:", error);
+            }
+        }
+    
+        // Fungsi Fetch Data Pembayaran
+        async function fetchDataBayar() {
+            const scrip = "https://script.google.com/macros/s/AKfycbzf_1qr-96Sns7cMSki6RrChzucWovj9_761A_vZHGfXAgaT4_WtzAcPiXNefp1RlKE5w/exec?action=read";
+    
+            try {
+                let response = await fetch(scrip);
+                let data = await response.json();
+    
+                if (data) {
+                    document.querySelector(".bayar-online").textContent = (data.online || "0") + " casis";
+                    document.querySelector(".bayar-ofline").textContent = (data.offline || "0") + " casis";
+                } else {
+                    console.log("Data pembayaran tidak ditemukan.");
+                }
+            } catch (error) {
+                console.error("Error fetching pembayaran data:", error);
+            }
+        }
+    
+   // Fungsi Fetch Data Jurusan
+async function fetchDataJurusan() {
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxbMk3u0DMGFw5iY2l1zAXlz7_v_yXEkwKWcyn8vWVVXts12b-0S6Nv1E0LbjY_Q52z/exec"; 
+
+    try {
+        let response = await fetch(scriptURL);
+        let data = await response.json();
+
+        if (data) {
+            var jurusan = data.map(item => item.jurusan);
+            var jumlahSiswa = data.map(item => item.jumlah_siswa);
+
+            // Pastikan elemen canvas tersedia
+            const canvas = document.getElementById("chart-jurusan");
+            if (!canvas) {
+                console.error("Canvas dengan ID 'chart-jurusan' tidak ditemukan!");
+                return;
+            }
+            const ctx = canvas.getContext("2d");
+
+            new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: jurusan,
+                    datasets: [{
+                        data: jumlahSiswa,
+                        backgroundColor: [
+                            "#00CED1", "#1E90FF", "#9400D3", "#696969", "#228B22",
+                            "#4682B4", "#ff5733", "#8e44ad", "#34495e", "#d35400"
+                        ],
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: "top" },
+                        title: {
+                            display: false,
+                            text: "Jumlah Siswa Per Jurusan"
+                        }
+                    }
+                },
+            });
+        } else {
+            console.log("Data jurusan tidak ditemukan.");
+        }
+    } catch (error) {
+        console.error("Error fetching data jurusan:", error);
+    }
+}
+
+// Pastikan script dijalankan setelah halaman selesai dimuat
+window.onload = function() {
+    fetchDataJurusan();
+};
+
+
+        // Fungsi Menghitung Total dan Render Chart
+        function hitungTotalDanRenderChart() {
+            setTimeout(() => {
+                const totalLakiOfflineEl = document.querySelector(".total-laki");
+                const totalPerempuanOfflineEl = document.querySelector(".total-perempuan");
+                const lakiOnlineEl = document.querySelector(".laki_online");
+                const perempuanOnlineEl = document.querySelector(".perempuan_online");
+    
+                let lakiOffline = totalLakiOfflineEl ? parseInt(totalLakiOfflineEl.textContent) || 0 : 0;
+                let perempuanOffline = totalPerempuanOfflineEl ? parseInt(totalPerempuanOfflineEl.textContent) || 0 : 0;
+                let lakiOnline = lakiOnlineEl ? parseInt(lakiOnlineEl.textContent) || 0 : 0;
+                let perempuanOnline = perempuanOnlineEl ? parseInt(perempuanOnlineEl.textContent) || 0 : 0;
+    
+                let totalLaki = lakiOffline + lakiOnline;
+                let totalPerempuan = perempuanOffline + perempuanOnline;
+    
+                renderChart(totalLaki, totalPerempuan);
+            }, 1000);
+        }
+    
+        // Fungsi untuk menampilkan Chart
+        function renderChart(totalLaki, totalPerempuan) {
+            const chartEl = document.getElementById("chart-visitors-profile");
+            if (!chartEl) {
+                console.error("Elemen chart tidak ditemukan!");
+                return;
+            }
+    
+            const ctx = chartEl.getContext("2d");
+    
+            new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Laki-laki", "Perempuan"],
+                    datasets: [
+                        {
+                            data: [totalLaki, totalPerempuan],
+                            backgroundColor: ["#3498db", "#e74c3c"],
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: "top" },
+                    },
+                },
+            });
+        }
+    </script>
+    
+<script>
+    function logout() {
+        const username = localStorage.getItem('username'); // Get the username from local storage
+
+        // Check if username exists
+        if (username) {
+            const deleteUrl = `https://script.google.com/macros/s/AKfycbxAeeQSHUDj_k1pX-z3k9KG0d17QwWmIe0s7-Er7mljIWNah3umEcROWc7mRKtVQveJ/exec?username=${encodeURIComponent(username)}&action=delete`; // Replace with your actual Google Apps Script URL
+
+            fetch(deleteUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data deleted successfully:', data);
+                    // Clear the history from local storage
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+
+                    // Redirect to index.html
+                    window.location.href = 'index.html'; // Change 'index.html' to your actual homepage if different
+                })
+                .catch(error => {
+                    console.error('Error deleting data:', error);
+                    // Optionally, clear local storage and redirect even if deletion fails
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+                    window.location.href = 'index.html';
+                });
+        } else {
+            // If no username is found, just redirect
+            localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+    }
+</script>
+   
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

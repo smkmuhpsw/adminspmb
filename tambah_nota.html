@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Nota Pembayaran</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+   <style>
+    @media print {
+        /* Atur ukuran halaman cetak menjadi A5 dalam orientasi landscape */
+        @page {
+            size: F5 portrait; /* Perbaiki 'potrait' menjadi 'portrait' */
+            margin: 1mm 3mm 3mm 3mm; /* Atas 1mm, Kanan 3mm, Bawah 3mm, Kiri 3mm */
+        }
+        
+
+        /* Sembunyikan elemen yang tidak perlu saat mencetak */
+        body * {
+            visibility: hidden;
+        }
+
+        /* Tampilkan hanya elemen yang ingin dicetak */
+        .max-w-4xl {
+            visibility: visible;
+        }
+
+        /* Tampilkan elemen anak dari .max-w-4xl */
+        .max-w-4xl * {
+            visibility: visible;
+        }
+
+        /* Atur posisi elemen yang ingin dicetak */
+        .max-w-4xl {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* Sembunyikan footer saat mencetak */
+        footer {
+            display: none;
+        }
+
+        /* Sembunyikan elemen yang berisi URL */
+        .url {
+            display: none;
+        }
+        thead{
+            background-color: rgb(190, 190, 190);
+        }
+        .ppdb {
+            background-color: #3B82F6 !important; /* Pastikan warna tetap saat print */
+            color: white !important; /* Warna teks tetap putih */
+            padding: 0.5rem 1rem !important;
+            border-radius: 0.25rem !important;
+            -webkit-print-color-adjust: exact; /* Pastikan warna background dicetak */
+            print-color-adjust: exact;
+        }
+          /* Atur tabel agar tetap responsif saat dicetak */
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow: visible;
+    }
+
+    /* Warna header tabel */
+    .table thead {
+        background-color: rgb(190, 190, 190) !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+  
+
+    /* Sembunyikan elemen yang tidak perlu saat mencetak */
+    body * {
+        visibility: hidden;
+    }
+
+    .container, .container * {
+        visibility: visible;
+    }
+
+       
+    }
+  
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="home.html"><img src="assets/images/SPMB.png" style="height: 45px;" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="home.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="info.html" class='sidebar-link'>
+                                <i class="bi bi-megaphone-fill"></i> 
+                                <span>informasi</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-title">Menu Extra</li>
+                        <li class="sidebar-item has-sub ">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Data Master</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item ">
+                                    <a href="data-casis.html">Data Casis Offline</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="data-online.html">Data Casis Online</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="jurusan.html">Jurusan</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="tahun.html">Tahun</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="minat.html">Minat Bakat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="episode.html">Episode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="data-pem-ppdb.html">Pembayaran Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="riwayat.html">Riwayat</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Laporan</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="laporan_jurusan.html">Data Jumlah Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="laporan-eps.html">Laporan Kuota</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="pengaturan.html" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="javascript:void(0);" class="sidebar-link" onclick="logout()">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Pembayaran Casis</h3>
+                          
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Pembayaran Casis</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <section class="section">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                     <p class="text-subtitle text-muted">Ini adalah halaman untuk mencetak bukti pembayaran casis</p>
+                                </div>
+                                <div class="card-body">
+                                  
+                                <div class="flex justify-end">
+                                    <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded">Cetak Bukti Pembayaran</button>
+                                
+                                </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="max-w-4xl mx-auto p-8 bg-white ">
+                        <div class="flex justify-between items-center mb-4">
+                            <h1 class="text-2xl font-bold">Bukti Pembayaran PPDB</h1>
+                            <div class="bg-blue-500 text-white px-4 py-2 rounded ppdb">PPDB 2024/2025</div>
+                        </div>
+                    
+                       
+                    
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <div>
+                                    <p>Asal SMP</p>
+                                    <p>Tanggal Pembayaran</p>
+                                    <p>Episode</p>
+                                    <p>Riwayat</p>
+                                    
+                                </div>
+                                <div class="ml-4">
+                                    <p class="asal-smp"> </p>
+                                    <p class="tgl-pembayaran"> </p>
+                                    <p class="episode"> </p>
+                                    <p class="id_riwayat"></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="container mt-4">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Id Pembayaran</th>
+                                            <th>Nama Siswa</th>
+                                            <th>Nisn</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td>1</td>
+                                        <td class="id"></td>
+                                        <td class="nama"></td>
+                                        <td class="nisn"></td>
+                                        <td class="Ket"></td>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="mb-4 ">
+                            <div class="flex justify-end">
+                                <div class="w-80">
+                                    <div class="flex justify-between">
+                                        <p>Yang sudah di bayar</p>
+                                        <p class="sudah"></p>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <p>Tanda Jadi</p>
+                                        <p class="tanda_jadi"></p>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <p>Pembayaran</p>
+                                        <p class="bayar"></p>
+                                   </div>
+                                    <div class="flex justify-between font-bold">
+                                        <p>Kekurangan Pembayaran</p>
+                                        <p class="kur"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <div>
+                                <p>Nama Siwa</p>
+                                <br>
+                                <br>
+                                <p class="namattd"></p>
+                            </div>
+                            <div class="text-right">
+                                <p id="tanggal"></p>
+                                <p>Panitia</p>
+                                <br>
+                                <br>
+                                <p>(.........................)</p>
+                            </div>
+                        </div>
+                        <div style="text-align: center; padding-top: 10px;">
+                            <p>------------------------------------------------------------------------------------------------------</p>
+                           
+                          </div>
+                          
+                    </div>
+                    
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; AGA</p>
+                    </div>
+                    <div class="float-end">
+                        <p>By <a
+                                href="">Sewu Developer</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Check if the user is logged in
+        if (!localStorage.getItem('username')) {
+            window.location.href = 'index.html'; // Redirect to login page
+        }
+    
+        // Prevent user from going back to the previous page
+        window.history.replaceState(null, '', window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+    
+         // Get the username from localStorage
+    const username = localStorage.getItem('username') || 'test_user';
+    document.getElementById('usernameHeader').textContent = username;
+    
+    </script>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw3z7POzjQeTahCQkoCDzF1cWkbmrIUh5WqydhzS8GjwdQIIN4yTJbnINXt5-qFfunFkQ/exec';
+        const episodeURL = 'https://script.google.com/macros/s/AKfycbwwynMSPVtnwOvoNbN1MSL9Fd0luEwtkcsVwlGjTsDh-ponhBN5v61xHA_hRzzBV94z/exec'; 
+    
+        let episodeMAP = {}; // Objek untuk mapping ID ke Nama Jurusan
+    
+        // Ambil data episode terlebih dahulu
+        fetch(episodeURL)
+            .then(response => response.json())
+            .then(episodeData => {
+                // Buat mapping ID episode ke nama episode
+                episodeMAP = episodeData.reduce((map, episode) => {
+                    map[episode.id_episode] = episode.episode; // { "1": "Episode 1", "2": "Episode 2" }
+                    return map;
+                }, {});
+            })
+            .catch(error => console.error('Error fetching episode data:', error));
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const idcasis = urlParams.get('id_casis'); // Mengambil 'id_casis' dari URL
+        
+        if (idcasis) {
+            fetch(`${scriptURL}?id_casis=${idcasis}`)  
+            .then(response => response.json())
+            .then(data => {
+                console.log('Fetched Data:', data); // Log untuk debug
+                
+                if (!data || data.message === "Data not found") {
+                    console.log('No data found.');
+                    document.querySelector('.error-message').textContent = 'Data tidak ditemukan';
+                    return;
+                }
+                  // Perbaikan pada episode
+                  const episode = episodeMAP[data.episode] || '...............'; 
+
+                // Akses properti dengan aman
+                const asalSmp = data.asal || 'N/A';
+                const tglPembayaran = data.tanggal ? new Date(data.tanggal).toLocaleDateString('id-ID') : 'N/A';
+                const riwayatid = data.id_riwayat || 'N/A';
+                const pembayaranID = data.id_pembayaran || 'N/A';
+                const namaSiswa = data.nama || 'N/A';
+                const nisn = data.nisn || 'N/A';
+                
+                const bayar = data.pembayaran || 0;
+                const yangbayar = data.yang_dibayar || 0;
+                const keterangan = data.keterangan || 'N/A';
+                const tandajadi= data.tanda_jadi;
+                const kekurangan = tandajadi - yangbayar;
+    
+                // Update nilai ke dalam HTML
+                document.querySelector('.id_riwayat').textContent = `: ${riwayatid}`;
+                document.querySelector('.asal-smp').textContent = `: ${asalSmp}`;
+                document.querySelector('.tgl-pembayaran').textContent = `: ${tglPembayaran}`;
+                document.querySelector('.episode').textContent = `: ${episode}`;
+                document.querySelector('.id').textContent = ` ${pembayaranID}`;
+                document.querySelector('.nama').textContent = ` ${namaSiswa}`;
+                document.querySelector('.namattd').textContent = `( ${namaSiswa} )`;
+                document.querySelector('.nisn').textContent = ` ${nisn}`;
+                document.querySelector('.Ket').textContent = ` ${keterangan}`;
+                document.querySelector('.sudah').textContent = `Rp ${parseInt(bayar).toLocaleString('id-ID')}`;
+                document.querySelector('.kur').textContent = `Rp ${parseInt(kekurangan).toLocaleString('id-ID')}`;
+                document.querySelector('.bayar').textContent = `Rp ${parseInt(yangbayar).toLocaleString('id-ID')}`;
+                document.querySelector('.tanda_jadi').textContent = `Rp ${parseInt(tandajadi).toLocaleString('id-ID')}`;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        }
+    });
+    
+    
+    </script>
+       <script>
+        // Fungsi untuk mendapatkan tanggal saat ini
+        function formatTanggal() {
+            const tanggal = new Date();
+            const opsi = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Makassar' };
+            return tanggal.toLocaleDateString('id-ID', opsi);
+        }
+
+        // Menampilkan tanggal di elemen dengan id "tanggal"
+        document.getElementById('tanggal').innerText = `Pringsewu, ${formatTanggal()}`;
+    </script>
+    <script>
+        // Function to print the content
+        document.getElementById('printButton').onclick = function() {
+            window.print();
+        };
+    
+        // Function to download the content as PDF
+        document.getElementById('downloadPDFButton').onclick = function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+    
+            // Capture the content of the "Bukti Pembayaran PPDB" section
+            const content = document.querySelector('.max-w-4xl').innerHTML;
+    
+            // Add the content to the PDF
+            doc.fromHTML(content, 15, 15, {
+                'width': 170
+            });
+    
+            // Save the PDF
+            doc.save('Bukti_Pembayaran_PPDB.pdf');
+        };
+    </script>
+
+    <script>
+        function logout() {
+            const username = localStorage.getItem('username'); // Get the username from local storage
+    
+            // Check if username exists
+            if (username) {
+                const deleteUrl = `https://script.google.com/macros/s/AKfycbxAeeQSHUDj_k1pX-z3k9KG0d17QwWmIe0s7-Er7mljIWNah3umEcROWc7mRKtVQveJ/exec?username=${encodeURIComponent(username)}&action=delete`; // Replace with your actual Google Apps Script URL
+    
+                fetch(deleteUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Data deleted successfully:', data);
+                        // Clear the history from local storage
+                        localStorage.removeItem('history');
+                        localStorage.removeItem('username');
+                        localStorage.removeItem('password');
+                        localStorage.removeItem('role');
+    
+                        // Redirect to index.html
+                        window.location.href = 'index.html'; // Change 'index.html' to your actual homepage if different
+                    })
+                    .catch(error => {
+                        console.error('Error deleting data:', error);
+                        // Optionally, clear local storage and redirect even if deletion fails
+                        localStorage.removeItem('history');
+                        localStorage.removeItem('username');
+                        localStorage.removeItem('password');
+                        localStorage.removeItem('role');
+                        window.location.href = 'index.html';
+                    });
+            } else {
+                // If no username is found, just redirect
+                localStorage.removeItem('history');
+                        localStorage.removeItem('username');
+                        localStorage.removeItem('password');
+                        localStorage.removeItem('role');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

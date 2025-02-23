@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Login</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/pages/auth.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="auth">
+
+        <div class="row h-100">
+            <div class="col-lg-7 col-12">
+                <div id="auth-left">
+                    <div class="auth-logo">
+                        <a href="index.html"><img src="assets/images/spmb.png" style="height: 60px; height:70px;" alt="Logo"></a>
+                    </div>
+                    <h1 class="auth-title">Log in.</h1>
+                    <p class="auth-subtitle mb-5">Administration</p>
+                    <div id="response" class="mt-3" style="display: none;"></div>
+
+                    <form id="loginForm">
+                              <div class="form-group position-relative has-icon-left mb-4">
+                                  <input type="text" id="username" class="form-control form-control-xl" placeholder="Username" required>
+                                  <div class="form-control-icon">
+                                      <i class="bi bi-person"></i>
+                                  </div>
+                              </div>
+                          
+                              <div class="form-group position-relative has-icon-left mb-4">
+                                  <input type="password" id="password" class="form-control form-control-xl" placeholder="Password" required>
+                                  <div class="form-control-icon">
+                                      <i class="bi bi-shield-lock"></i>
+                                  </div>
+                                  <i class="bi bi-eye-slash toggle-password" onclick="togglePassword()" style="position: absolute; right: 15px; top: 12px; cursor: pointer;"></i>
+                              </div>
+                          
+                              <div class="form-check form-check-lg d-flex align-items-end">
+                                  <input class="form-check-input me-2" type="checkbox" id="keepLoggedIn">
+                                  <label class="form-check-label text-gray-600" for="keepLoggedIn">
+                                      Ceklis list box ini untuk login
+                                  </label>
+                              </div>
+                          
+                              <button type="submit" id="loginButton" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
+                                  Log in
+                              </button>
+                              <div class="d-flex justify-content-center">
+                                        <img id="spinner" src="assets/vendors/svg-loaders/circles.svg" class="me-4 mt-4" style="width: 3rem; display: none;" alt="loading">
+                                    </div>                                    
+                          
+                                
+
+                          </form>
+                          
+                    <div class="text-center mt-5 text-lg fs-4">
+                        <p class="text-gray-600">Tidak Bisa Login? <a href="https://wa.me/6282289635649"
+                                class="font-bold">Kontak
+                                Developer</a>.</p>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                    <div id="auth-right" class="d-flex justify-content-center align-items-center" style="height: 100%;">
+                        <img src="assets/images/logo smmk putih.png" alt="Logo" style="max-width: 60%; height: auto;">
+                    </div>
+                </div>
+                
+        </div>
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+          function togglePassword() {
+              const passwordField = document.getElementById('password');
+              const passwordIcon = document.querySelector('.toggle-password');
+              if (passwordField.type === 'password') {
+                  passwordField.type = 'text';
+                  passwordIcon.classList.remove('bi-eye-slash');
+                  passwordIcon.classList.add('bi-eye');
+              } else {
+                  passwordField.type = 'password';
+                  passwordIcon.classList.remove('bi-eye');
+                  passwordIcon.classList.add('bi-eye-slash');
+              }
+          }
+      </script>
+<script>
+          // Cek apakah username ada di localStorage
+        if (localStorage.getItem('username')) {
+          // Arahkan langsung ke halaman dashboard
+          var role = localStorage.getItem('role'); // Ambil peran pengguna dari localStorage
+          if (role === 'admin') {
+              window.location.href = 'home.html';
+          } else if (role === 'student') {
+              window.location.href = 'home.html';
+          }
+      }
+          function showAlert(message) {
+                    const responseDiv = document.getElementById('response');
+                    responseDiv.innerHTML = message;
+                    responseDiv.classList.add('alert', 'alert-danger');
+                    responseDiv.style.display = 'block'; // Menampilkan alert
+                }
+                
+                // Menyembunyikan alert saat login berhasil
+                function hideAlert() {
+                    const responseDiv = document.getElementById('response');
+                    responseDiv.style.display = 'none';
+                }
+                
+                document.getElementById('loginForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    hideAlert(); // Sembunyikan alert sebelum proses login
+                
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    const keepLoggedIn = document.getElementById('keepLoggedIn').checked;
+                
+                    document.getElementById('spinner').style.display = 'inline-block';
+                    document.getElementById('loginButton').style.display = 'none';
+                
+                    const currentDate = new Date().toISOString().split('T')[0];
+                
+                    fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                        method: 'POST',
+                        body: JSON.stringify({ action: 'checkHistory', username })
+                    })
+                    .then(response => response.json())
+                    .then(historyData => {
+                        if (historyData.exists) {
+                            document.getElementById('spinner').style.display = 'none';
+                            document.getElementById('loginButton').style.display = 'block';
+                            window.location.href = historyData.role === 'admin' ? 'home.html' : 'home.html';
+                        } else {
+                            fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                                method: 'POST',
+                                body: JSON.stringify({ username, password })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                document.getElementById('spinner').style.display = 'none';
+                                document.getElementById('loginButton').style.display = 'block';
+                
+                                if (data.success) {
+                                    fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                                        method: 'POST',
+                                        body: JSON.stringify({ action: 'logHistory', name: username, date: currentDate })
+                                    })
+                                    .then(historyResponse => historyResponse.json())
+                                    .then(historyData => {
+                                        if (historyData.success) {
+                                            if (keepLoggedIn) {
+                                                localStorage.setItem('username', username);
+                                                localStorage.setItem('role', data.role);
+                                            }
+                                            window.location.href = data.role === 'admin' ? 'home.html' : 'home.html';
+                                        } else {
+                                            showAlert('Pencatatan riwayat gagal: ' + historyData.message);
+                                        }
+                                    })
+                                    .catch(error => {
+                                        showAlert('Terjadi kesalahan saat mencatat riwayat.');
+                                    });
+                                } else {
+                                    showAlert('Login gagal: ' + data.message);
+                                }
+                            })
+                            .catch(error => {
+                                showAlert('Terjadi kesalahan.');
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        showAlert('Terjadi kesalahan saat memeriksa riwayat.');
+                        document.getElementById('spinner').style.display = 'none';
+                        document.getElementById('loginButton').style.display = 'block';
+                    });
+                });
+                
+      </script>
+      
+</html>

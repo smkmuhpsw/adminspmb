@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIM SPMB - Form Casis</title>
+    <link rel="icon" href="assets/images/SPMB2.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="home.html"><img src="assets/images/SPMB.png" style="height: 45px;" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="home.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="info.html" class='sidebar-link'>
+                                <i class="bi bi-megaphone-fill"></i> 
+                                <span>informasi</span>
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-title">Menu Extra</li>
+                        <li class="sidebar-item has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Data Master</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item active">
+                                    <a href="data-casis.html">Data Casis Offline</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="data-online.html">Data Casis Online</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="jurusan.html">Jurusan</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="tahun.html">Tahun</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="minat.html">Minat Bakat</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="episode.html">Episode</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-hexagon-fill"></i>
+                                <span>Pembayaran</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="data-pem-ppdb.html">Pembayaran Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="riwayat.html">Riwayat</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-pen-fill"></i>
+                                <span>Laporan</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="laporan_jurusan.html">Data Jumlah Casis</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="laporan-eps.html">Laporan Kuota</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="pengaturan.html" class='sidebar-link'>
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="javascript:void(0);" class="sidebar-link" onclick="logout()">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Form Casis</h3>
+                            <p class="text-subtitle text-muted">form input casis baru</p>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form Layout</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-alert d-none alert alert-success" role="alert">
+                    Form submitted successfully!
+                </div>
+
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Data Diri Casis</h4>
+                                </div>
+                               
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form class="form" name="tambah" id="tambah">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="nama_casis">Nama Calon Siswa</label>
+                                                        <input type="text" id="nama_casis" class="form-control" name="Nama" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="jk">Jenis Kelamin</label>
+                                                        <select class="form-select" id="jk" name="JenisKelamin" required>
+                                                            <option value="Laki-Laki">Laki-Laki</option>
+                                                            <option value="Perempuan">Perempuan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="tempat_l">Tempat Lahir</label>
+                                                        <input type="text" id="tempat_l" class="form-control" name="TempatLahir" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="tanggal_l">Tanggal Lahir</label>
+                                                        <input type="date" id="tanggal_l" class="form-control" name="TanggalLahir" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="agama">Agama</label>
+                                                        <select class="form-select" id="agama" name="Agama" required>
+                                                            <option value="Islam">Islam</option>
+                                                            <option value="Katolik">Katolik</option>
+                                                            <option value="Buddha">Buddha</option>
+                                                            <option value="Hindu">Hindu</option>
+                                                            <option value="Kristen">Kristen</option>
+                                                            <option value="Konghucu">Konghucu</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="alamat_casis">Alamat Casis</label>
+                                                        <input type="text" id="alamat_casis" class="form-control" name="AlamatCalonSiswa" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="kode_post">Kode Post</label>
+                                                        <input type="text" id="kode_post" class="form-control" name="KodePost">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="no_telp">No Telephone</label>
+                                                        <input type="text" id="no_telp" class="form-control" name="Telp">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="no_wa_casis">No Whatsapp Casis</label>
+                                                        <input type="text" id="no_wa_casis" class="form-control" name="NoHp" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-12 ">Jurusan 1</label>
+                                                    <div class="col-sm-12">
+                                                        <select class="form-select shadow-none form-control-line" id="id_jurusan" name="id_jurusan" required>
+                                                            <option selected>Pilih Jurusan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-12">Jurusan 2</label>
+                                                    <div class="col-sm-12">
+                                                        <select class="form-select shadow-none form-control-line" id="idjurusan2" name="idjurusan2" required>
+                                                            <option selected>Pilih Jurusan</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-12">Minat Bakat</label>
+                                                    <div class="col-sm-12">
+                                                        <select class="form-select shadow-none form-control-line" id="id_minat" name="id_minat" required>
+                                                            <option selected>Pilih Minat</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                
+                                                <!-- Data SMP/MTS Section -->
+                                                <h4 class="card-title p-3">Data SMP/MTS</h4>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="asal_smp">Asal SMP/MTS</label>
+                                                        <input type="text" id="asal_smp" class="form-control" name="AsalSmp" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="tahun_l">Lulusan Tahun</label>
+                                                        <input type="number" id="tahun_l" class="form-control" name="LulusanTahun" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="no_ijazah">No Ijazah</label>
+                                                        <input type="text" id="no_ijazah" class="form-control" name="NoIjazah">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="nisn">NISN</label>
+                                                        <input type="number" id="nisn" class="form-control" name="NISN" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="nilai_skhu">Jumlah Nilai SKHU</label>
+                                                        <input type="number" id="nilai_skhu" class="form-control" name="JumlahNilaiSkhu">
+                                                    </div>
+                                                </div>
+                                
+                                                <!-- Data Keluarga Section -->
+                                                <h4 class="card-title p-3">Data Keluarga</h4>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="nama_ayah">Nama Ayah</label>
+                                                        <input type="text" id="nama_ayah" class="form-control" name="Ayah"required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="nama_ibu">Nama Ibu</label>
+                                                        <input type="text" id="nama_ibu" class="form-control" name="Ibu">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="alamat_ortu">Alamat Orang Tua</label>
+                                                        <input type="text" id="alamat_ortu" class="form-control" name="AlamatOrtu" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="NoHpOrtu">No Whatsapp Ortu</label>
+                                                        <input type="number" id="NoHpOrtu" class="form-control" name="NoHpOrtu" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="Pekerjaan">Pekerjaan Ortu</label>
+                                                        <input type="text" id="Pekerjaan" class="form-control" name="Pekerjaan" required>
+                                                    </div>
+                                                </div>
+                                
+                                                <!-- Data Panitia Section -->
+                                                <h4 class="card-title p-3">Data Panitia</h4>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="panitia">Nama Panitia</label>
+                                                        <input type="text" id="panitia" class="form-control" name="PanitiaYangInput" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="bawa">Nama Yang Membawa</label>
+                                                        <input type="text" id="bawa" class="form-control" name="YangMembawa" >
+                                                    </div>
+                                                </div>
+                    
+                                
+                                                <br>
+                                                <div class="col-12 d-flex justify-content-end">
+                                                    <button type="submit" class="btn btn-primary me-1 mb-1 btn-kirim">Submit</button>
+                                                        <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                                                            <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                                                            <span role="status">Loading...</span>
+                                                          </button>
+                                                    <button type="reset"
+                                                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- // Basic multiple Column Form section end -->
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; AGA</p>
+                    </div>
+                    <div class="float-end">
+                        <p>By <a
+                                href="">Sewu Developer</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<script>
+    // Check if the user is logged in
+    if (!localStorage.getItem('username')) {
+        window.location.href = 'index.html'; // Redirect to login page
+    }
+
+    // Prevent user from going back to the previous page
+    window.history.replaceState(null, '', window.location.href);
+    window.onpopstate = function () {
+        window.history.go(1);
+    };
+
+     // Get the username from localStorage
+const username = localStorage.getItem('username') || 'test_user';
+document.getElementById('usernameHeader').textContent = username;
+
+</script>
+
+<script>
+    // URL Web App dari Apps Script
+    const kls = 'https://script.google.com/macros/s/AKfycbyiMr2YZ6-incJUWUUI6CzBb8g7Cpyc1l2Sl1Ko2OAhdYcQ5pja4eX0FFYVDvWqqAda/exec'; // Ganti dengan URL Web App Anda
+
+    // Ambil data dari Apps Script dan tambahkan ke dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.getElementById('id_jurusan');
+
+        fetch(kls)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id_jurusan; // ID dari spreadsheet
+                    option.textContent = item.jurusan; // Nama dari spreadsheet
+                    dropdown.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    });
+    // Ambil data dari Apps Script dan tambahkan ke dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.getElementById('idjurusan2');
+
+        fetch(kls)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id_jurusan; // ID dari spreadsheet
+                    option.textContent = item.jurusan; // Nama dari spreadsheet
+                    dropdown.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    });
+</script>
+<script>
+    // URL Web App dari Apps Script
+    const url = 'https://script.google.com/macros/s/AKfycbxenGB_oGDQV8h8kA45bMgFXw8rmIjQrJFhukd0Qd4helczEU2wxB4_HeyP5S118vs/exec'; // Ganti dengan URL Web App Anda
+
+    // Ambil data dari Apps Script dan tambahkan ke dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.getElementById('id_minat');
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id_minat; // ID dari spreadsheet
+                    option.textContent = item.minat; // Nama dari spreadsheet
+                    dropdown.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx32Z2jhCgBbBLKIp2H1WaqZcbtH1Jy6CJ0ORikjvUjB95VVotlYrabUJtObLiYLB9v/exec';
+        const form = document.forms['tambah'];
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnLoading.classList.remove('d-none');
+            btnKirim.classList.add('d-none');
+
+            const formData = new FormData(form);
+            formData.append('func', 'add');  // Set function name to create entry
+            formData.append('SH', 'siswa'); // Specify the sheet name (change 'siswa' to your actual sheet name)
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.text()) // Change to text if your script returns plain text
+                .then(result => {
+                    console.log(result); // Log the result for debugging
+                    btnLoading.classList.add('d-none');
+                    btnKirim.classList.remove('d-none');
+                    myAlert.classList.remove('d-none');
+
+                    // Optionally, you can display the result message here
+                    myAlert.textContent = result; // Display the result message in the alert
+
+                    setTimeout(() => {
+                        myAlert.classList.add('d-none');
+                    }, 1200);
+
+                    form.reset();
+
+                    // Scroll to the top of the page
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // This adds a smooth scrolling effect
+                    });
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Submission failed. Please try again.");
+                    btnLoading.classList.add('d-none');
+                    btnKirim.classList.remove('d-none');
+                });
+        });
+    });
+</script>
+
+<script>
+    function logout() {
+        const username = localStorage.getItem('username'); // Get the username from local storage
+
+        // Check if username exists
+        if (username) {
+            const deleteUrl = `https://script.google.com/macros/s/AKfycbxAeeQSHUDj_k1pX-z3k9KG0d17QwWmIe0s7-Er7mljIWNah3umEcROWc7mRKtVQveJ/exec?username=${encodeURIComponent(username)}&action=delete`; // Replace with your actual Google Apps Script URL
+
+            fetch(deleteUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data deleted successfully:', data);
+                    // Clear the history from local storage
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+
+                    // Redirect to index.html
+                    window.location.href = 'index.html'; // Change 'index.html' to your actual homepage if different
+                })
+                .catch(error => {
+                    console.error('Error deleting data:', error);
+                    // Optionally, clear local storage and redirect even if deletion fails
+                    localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+                    window.location.href = 'index.html';
+                });
+        } else {
+            // If no username is found, just redirect
+            localStorage.removeItem('history');
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                    localStorage.removeItem('role');
+            window.location.href = 'index.html';
+        }
+    }
+</script>
+
+</html>
