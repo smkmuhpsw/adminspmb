@@ -147,7 +147,7 @@
                 
                     const currentDate = new Date().toISOString().split('T')[0];
                 
-                    fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                    fetch('https://script.google.com/macros/s/AKfycbxz0wCh8Obsy1_tmPjjyamJtf8keV2enQLkpbYyXrfARvnFVD9-v-w-s5kGxBvQo8lk/exec', {
                         method: 'POST',
                         body: JSON.stringify({ action: 'checkHistory', username })
                     })
@@ -158,7 +158,7 @@
                             document.getElementById('loginButton').style.display = 'block';
                             window.location.href = historyData.role === 'admin' ? 'home.html' : 'home.html';
                         } else {
-                            fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                            fetch('https://script.google.com/macros/s/AKfycbxz0wCh8Obsy1_tmPjjyamJtf8keV2enQLkpbYyXrfARvnFVD9-v-w-s5kGxBvQo8lk/exec', {
                                 method: 'POST',
                                 body: JSON.stringify({ username, password })
                             })
@@ -168,7 +168,7 @@
                                 document.getElementById('loginButton').style.display = 'block';
                 
                                 if (data.success) {
-                                    fetch('https://script.google.com/macros/s/AKfycbztbSxfCDYA78rKWkE5sZvr3w4W0ZFTnHXInk1_CYdMH1RNqNImxv2-t_VNRzn14SNL/exec', {
+                                    fetch('https://script.google.com/macros/s/AKfycbxz0wCh8Obsy1_tmPjjyamJtf8keV2enQLkpbYyXrfARvnFVD9-v-w-s5kGxBvQo8lk/exec', {
                                         method: 'POST',
                                         body: JSON.stringify({ action: 'logHistory', name: username, date: currentDate })
                                     })
